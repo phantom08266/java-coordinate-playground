@@ -1,16 +1,12 @@
 public class Coffee extends CaffeineBeverage {
-    public void prepareRecipe() {
-        boilWater();
-        brewCoffeeFromFilter();
-        pourIntoCup();
-        addSugarAndMilk();
-    }
 
-    public void brewCoffeeFromFilter() {
+    @Override
+    public void brew() {
         System.out.println("필터를 사용하여 커피를 내리다.");
     }
 
-    public void addSugarAndMilk() {
+    @Override
+    public void addCondiments() {
         System.out.println("설탕과 우유를 추가한다.");
     }
 }
