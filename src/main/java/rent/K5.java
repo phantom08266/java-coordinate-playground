@@ -2,7 +2,7 @@ package rent;
 
 import java.text.DecimalFormat;
 
-public class K5 extends Car {
+public class K5 implements Car {
 
     private final String CAR_NAME = "K5";
     private final double LITER = 13;

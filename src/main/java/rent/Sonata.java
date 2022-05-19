@@ -2,7 +2,7 @@ package rent;
 
 import java.text.DecimalFormat;
 
-public class Sonata extends Car {
+public class Sonata implements Car {
 
     private final String CAR_NAME = "Sonata";
     private final double LITER = 10;
