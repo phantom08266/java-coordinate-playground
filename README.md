@@ -24,3 +24,20 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+
+### 기능 요구사항
+```
+사용자 입력 처리부 : UserInputController(class)
+    - 좌표 입력 : coordinateUserInput(method)
+    - X, Y좌표 모두 최대 24까지만 입력 (입력검증) => 에러문구 출력 : validMaxPosition(method)
+    - 검증 실패 시 다시 입력받도록!
+    
+정규표현식을 이용한 좌표값 추출 : RegexParser(interface), PositionCollector(class), SeparatorCollector(class)
+    - 좌표 정보는 괄호"(", ")"로 둘러쌓여 있으며 쉼표(,)로 x값과 y값을 구분 : PositionCollector에게 위임
+    - 좌표값과 좌표값 사이는 '-' 문자로 구분 : SeparatorCollector에게 위임
+    
+결과 출력부 - CoordinateResult(class)
+    - 좌표계산기를 표출해야한다. : coordinatePrint(method)
+        - 사용자가 입력한 정상적인 좌표값을 특수문자로 표시한다.
+    - 직선인 경우는 두 점 사이 거리를 계산해서 출력. : coordinateResultPrint(method)
+```
