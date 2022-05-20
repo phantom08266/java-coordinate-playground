@@ -15,10 +15,14 @@ public class UserInputControllerTest {
     @Mock
     private Scanner scanner;
 
+    @Mock
+    private PositionCollector positionCollector;
+
+
     @Test
     @DisplayName("좌표값은 24초과 시 validMaxPosition가 false를 반환한다.")
     void test1() {
-        UserInputController userInputController = new UserInputController(scanner);
+        UserInputController userInputController = new UserInputController(scanner, positionCollector);
         Assertions.assertThat(userInputController.validMaxPosition("25")).isFalse();
     }
 }

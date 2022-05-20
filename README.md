@@ -41,3 +41,8 @@ ex) git checkout -b apply-feedback
         - 사용자가 입력한 정상적인 좌표값을 특수문자로 표시한다.
     - 직선인 경우는 두 점 사이 거리를 계산해서 출력. : coordinateResultPrint(method)
 ```
+
+
+### 추가 학습 포인트
+1. 정규표현식 공부하기
+2. 
