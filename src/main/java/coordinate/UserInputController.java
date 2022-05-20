@@ -1,30 +1,38 @@
 package coordinate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInputController {
-    public static final int MAX_POSITION = 24;
-    private final Scanner scanner;
 
-    public UserInputController(Scanner scanner) {
+    private final Scanner scanner;
+    private final PositionParser positionParser;
+
+    public UserInputController(Scanner scanner, PositionParser positionParser) {
         this.scanner = scanner;
+        this.positionParser = positionParser;
     }
 
     public void coordinateUserInput() {
         boolean enable = true;
-        while(enable) {
+        List<Position> positions = new ArrayList<>();
+        while (positions.isEmpty()) {
             System.out.println("좌표를 입력하세요.");
-            String position = scanner.nextLine();
-            enable = !validMaxPosition(position);
+            String coordinate = scanner.nextLine();
+            positions.addAll(positionParser.parses(coordinate));
         }
-    }
-
-    protected boolean validMaxPosition(String position) {
-        int comparePosition = Integer.parseInt(position);
-        if (comparePosition > MAX_POSITION) {
-            System.out.println("좌표의 최대값 24를 초과하였습니다.");
-            return false;
-        }
-        return true;
     }
 }
+
+class test {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        PositionParser positionParser = new PositionParser();
+        UserInputController userInputController = new UserInputController(scanner,
+            positionParser);
+        userInputController.coordinateUserInput();
+    }
+}
+
