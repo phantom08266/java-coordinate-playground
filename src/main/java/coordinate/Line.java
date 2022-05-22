@@ -29,6 +29,7 @@ public class Line {
     public double distance() {
         double x = Math.pow(Math.abs(firstPoint.getX() - secondPoint.getX()), 2);
         double y = Math.pow(Math.abs(firstPoint.getY() - secondPoint.getY()), 2);
-        return Math.sqrt(x + y);
+        String distance = String.format("%.6f", Math.sqrt(x + y));
+        return Double.parseDouble(distance);
     }
 }

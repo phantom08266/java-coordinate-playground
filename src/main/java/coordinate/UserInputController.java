@@ -22,6 +22,14 @@ public class UserInputController {
             String coordinate = scanner.nextLine();
             points.addAll(positionParser.parses(coordinate));
         }
+        if (points.size() == 2) {
+            Line line = new Line(points);
+            System.out.println("두 점 사이 거리는 " + line.distance());
+        }
+        else if (points.size() == 4) {
+            Rectangle rectangle = new Rectangle(points);
+            System.out.println("사각형 넓이는 "+ rectangle.getArea());
+        }
     }
 }
 
