@@ -30,10 +30,20 @@ public class Position {
         }
     }
 
+    public double distance(Position position) {
+        double x = Math.pow(Math.abs(position.x - this.x), 2);
+        double y = Math.pow(Math.abs(position.y - this.y), 2);
+        return Math.sqrt(x + y);
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Position position = (Position) o;
         return x == position.x && y == position.y;
     }
