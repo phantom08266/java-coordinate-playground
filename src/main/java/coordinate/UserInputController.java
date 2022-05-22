@@ -30,6 +30,10 @@ public class UserInputController {
             Rectangle rectangle = new Rectangle(points);
             System.out.println("사각형 넓이는 "+ rectangle.getArea());
         }
+        else if (points.size() == 3) {
+            Triangle triangle = new Triangle(points);
+            System.out.println("삼각형 넓이는 " + triangle.getArea());
+        }
     }
 }
 
