@@ -11,7 +11,7 @@ public class PositionParser {
     private final String POSITION_REGEX = "\\((.*?)\\)";
     private final String SEPERATOR = ",";
 
-    public Position parse(String coordinate) {
+    public Point parse(String coordinate) {
         try {
             return convertPosition(coordinate);
         } catch (IllegalArgumentException ex) {
@@ -20,7 +20,7 @@ public class PositionParser {
         }
     }
 
-    public List<Position> parses(String coordinates) {
+    public List<Point> parses(String coordinates) {
         try {
             return convertPositions(coordinates);
         } catch (IllegalArgumentException ex) {
@@ -29,23 +29,23 @@ public class PositionParser {
         }
     }
 
-    private List<Position> convertPositions(String coordinates) {
+    private List<Point> convertPositions(String coordinates) {
         Matcher matcher = Pattern.compile(POSITION_REGEX).matcher(coordinates);
-        List<Position> positions = new ArrayList<>();
+        List<Point> points = new ArrayList<>();
         while (matcher.find()) {
             String[] splitedPosition = matcher.group(1).split(SEPERATOR);
-            positions.add(makePosition(splitedPosition));
+            points.add(makePosition(splitedPosition));
         }
-        return positions;
+        return points;
     }
 
-    private Position makePosition(String[] positions) {
+    private Point makePosition(String[] positions) {
         int x = Integer.parseInt(positions[0]);
         int y = Integer.parseInt(positions[1]);
-        return new Position(x, y);
+        return new Point(x, y);
     }
 
-    private Position convertPosition(String coordinate) {
+    private Point convertPosition(String coordinate) {
         Matcher matcher = Pattern.compile(POSITION_REGEX).matcher(coordinate);
 
         if (matcher.find()) {

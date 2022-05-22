@@ -2,7 +2,7 @@ package coordinate;
 
 import java.util.Objects;
 
-public class Position {
+public class Point {
 
     public static final int MAX_POSITION = 24;
     public static final int MIN_POSITION = 0;
@@ -10,7 +10,7 @@ public class Position {
     private final int x;
     private final int y;
 
-    public Position(int x, int y) {
+    public Point(int x, int y) {
         validMinPosition(x, y);
         validMaxPosition(x, y);
 
@@ -18,7 +18,7 @@ public class Position {
         this.y = y;
     }
 
-    protected void validMaxPosition(int x, int y) {
+    private void validMaxPosition(int x, int y) {
         if (x > MAX_POSITION || y > MAX_POSITION) {
             throw new IllegalArgumentException("x, y 좌표값은 24를 초과할 수 없습니다.");
         }
@@ -30,10 +30,12 @@ public class Position {
         }
     }
 
-    public double distance(Position position) {
-        double x = Math.pow(Math.abs(position.x - this.x), 2);
-        double y = Math.pow(Math.abs(position.y - this.y), 2);
-        return Math.sqrt(x + y);
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     @Override
@@ -44,8 +46,8 @@ public class Position {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Position position = (Position) o;
-        return x == position.x && y == position.y;
+        Point point = (Point) o;
+        return x == point.x && y == point.y;
     }
 
     @Override

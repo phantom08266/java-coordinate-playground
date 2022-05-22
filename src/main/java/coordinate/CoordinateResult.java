@@ -4,8 +4,8 @@ public class CoordinateResult {
 
     private double distance;
 
-    public CoordinateResult(Position firstPoint, Position secondPoint) {
-        distance = firstPoint.distance(secondPoint);
+    public CoordinateResult(Line line) {
+        distance = line.distance();
     }
 
     public double getDistance() {

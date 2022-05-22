@@ -16,11 +16,11 @@ public class UserInputController {
 
     public void coordinateUserInput() {
         boolean enable = true;
-        List<Position> positions = new ArrayList<>();
-        while (positions.isEmpty()) {
+        List<Point> points = new ArrayList<>();
+        while (points.isEmpty()) {
             System.out.println("좌표를 입력하세요.");
             String coordinate = scanner.nextLine();
-            positions.addAll(positionParser.parses(coordinate));
+            points.addAll(positionParser.parses(coordinate));
         }
     }
 }

@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class PositionParserTest {
+class PointParserTest {
 
     @Test
     @DisplayName("입력받은 (5,6)좌표값은 Position 오브젝트로 반환에 성공한다.")
     void test1() {
         PositionParser positionParser = new PositionParser();
-        Position position = new Position(5,6);
-        assertThat(positionParser.parse("(5,6)")).isEqualTo(position);
+        Point point = new Point(5,6);
+        assertThat(positionParser.parse("(5,6)")).isEqualTo(point);
     }
 
     @ParameterizedTest
@@ -32,8 +32,8 @@ class PositionParserTest {
         PositionParser positionParser = new PositionParser();
         assertThat(positionParser.parses("(10,10)-(14,15)"))
             .isNotEmpty()
-            .contains(new Position(14,15))
-            .contains(new Position(10,10));
+            .contains(new Point(14,15))
+            .contains(new Point(10,10));
     }
 
     @ParameterizedTest

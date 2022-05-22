@@ -27,6 +27,7 @@ ex) git checkout -b apply-feedback
 
 ### 기능 요구사항
 ```
+[좌표계산기 - 선 길이]
 사용자 입력 처리부 : UserInputController(class)[0]
     - 좌표 입력 : coordinateUserInput(method)
     - 검증 실패 시 다시 입력받도록!
@@ -43,9 +44,15 @@ ex) git checkout -b apply-feedback
     - 좌표계산기를 표출해야한다. : coordinatePrint(method)
         - 사용자가 입력한 정상적인 좌표값을 특수문자로 표시한다.
     - 직선인 경우는 두 점 사이 거리를 계산해서 출력. : coordinateResultPrint(method)
+    
+[좌표계산기 - 사각형 면적]
+
+네 점 입력한 경우 사격형으로 가정
+
 ```
 
 
 ### 추가 학습 포인트
 1. 정규표현식 공부하기
-2. 
+2. [Comparable 과 Comparator의 이해](Comparehttps://st-lab.tistory.com/243)
+3. 객체에게 물어보는 방식을 사용하면 자연적으로 객체간의 책임이 명확해 진다.(Line.java가 생긴 이유)
