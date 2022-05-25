@@ -5,7 +5,7 @@ public class CoordinateResult {
     private double distance;
 
     public CoordinateResult(Line line) {
-        distance = line.distance();
+        distance = line.area();
     }
 
     public double getDistance() {

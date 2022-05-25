@@ -9,31 +9,26 @@ public class UserInputController {
     private final Scanner scanner;
     private final PositionParser positionParser;
 
-    public UserInputController(Scanner scanner, PositionParser positionParser) {
+    private final ShapeFactory shapeFactory;
+
+    public UserInputController(Scanner scanner, PositionParser positionParser, ShapeFactory shapeFactory) {
         this.scanner = scanner;
         this.positionParser = positionParser;
+        this.shapeFactory = shapeFactory;
     }
 
     public void coordinateUserInput() {
         boolean enable = true;
         List<Point> points = new ArrayList<>();
+
         while (points.isEmpty()) {
             System.out.println("좌표를 입력하세요.");
             String coordinate = scanner.nextLine();
             points.addAll(positionParser.parses(coordinate));
         }
-        if (points.size() == 2) {
-            Line line = new Line(points);
-            System.out.println("두 점 사이 거리는 " + line.distance());
-        }
-        else if (points.size() == 4) {
-            Rectangle rectangle = new Rectangle(points);
-            System.out.println("사각형 넓이는 "+ rectangle.getArea());
-        }
-        else if (points.size() == 3) {
-            Triangle triangle = new Triangle(points);
-            System.out.println("삼각형 넓이는 " + triangle.getArea());
-        }
+        Shaper shape = shapeFactory.getShape(points);
+        shape.area();
+        shape.print();
     }
 }
 
@@ -42,8 +37,9 @@ class test {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         PositionParser positionParser = new PositionParser();
+        ShapeFactory shapeFactory = new ShapeFactory();
         UserInputController userInputController = new UserInputController(scanner,
-            positionParser);
+            positionParser, shapeFactory);
         userInputController.coordinateUserInput();
     }
 }

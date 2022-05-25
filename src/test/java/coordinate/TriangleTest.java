@@ -26,6 +26,6 @@ class TriangleTest {
     @DisplayName("세 좌표가 주어지면 삼각형 넓이를 구한다.")
     void test1() {
         Triangle triangle = new Triangle(points);
-        Assertions.assertThat(triangle.getArea()).isEqualTo(29.0);
+        Assertions.assertThat(triangle.area()).isEqualTo(29.0);
     }
 }

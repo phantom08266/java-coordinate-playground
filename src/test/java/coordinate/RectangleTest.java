@@ -27,7 +27,7 @@ class RectangleTest {
     @DisplayName("네점이 주어지면 사각형의 넓이를 계산한다.")
     void test1() {
         Rectangle rectangle = new Rectangle(points);
-        assertThat(rectangle.getArea()).isEqualTo(96);
+        assertThat(rectangle.area()).isEqualTo(96);
     }
 
     @Test
